@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate - Grace Church</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <div class="container">
+        <div class="logo">Breakthrough parish</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="donate.html" class="active">Donate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero donate-hero">
+      <h1>Support Grace Church</h1>
+      <p>Your generosity helps us spread faith and love</p>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="donation-form-section">
+      <h2>Make a Donation</h2>
+      <p>Choose an amount or enter your own</p>
+
+      <div class="donation-grid">
+        <button class="donation-amount">$10</button>
+        <button class="donation-amount">$25</button>
+        <button class="donation-amount">$50</button>
+        <button class="donation-amount">$100</button>
+      </div>
+
+      <form class="donation-form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input
+          type="number"
+          placeholder="Custom Amount"
+          id="customAmount"
+          required
+        />
+        <button type="submit" class="btn">Donate Now</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Grace Church. All rights reserved.</p>
+    </footer>
+
+    <script src="./home.js"></script>
+  </body>
+</html>
