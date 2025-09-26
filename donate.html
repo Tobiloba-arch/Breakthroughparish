@@ -3,72 +3,269 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donate - Grace Church</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Donate - Church Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        margin: 0;
+        padding: 0;
+        color: #2c3e50;
+      }
+
+      .donate-container {
+        max-width: 600px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        animation: fadeIn 1s ease;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 28px;
+        color: #1abc9c;
+      }
+
+      p.intro {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+        color: #34495e;
+      }
+
+      input,
+      textarea,
+      button {
+        width: 100%;
+        padding: 12px 14px;
+        margin-top: 6px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #1abc9c;
+        box-shadow: 0 0 6px rgba(26, 188, 156, 0.3);
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      button {
+        background: #1abc9c;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: #16a085;
+        transform: translateY(-2px);
+      }
+
+      .account-details {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #ecf9f7;
+        border: 2px dashed #1abc9c;
+        border-radius: 12px;
+        animation: slideIn 0.6s ease;
+      }
+
+      .account-details h3 {
+        margin-top: 0;
+        color: #1abc9c;
+      }
+
+      .success {
+        display: none;
+        margin-top: 25px;
+        padding: 18px;
+        background: #d4edda;
+        color: #155724;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        animation: fadeIn 0.8s ease;
+      }
+
+      /* Progress Bar */
+      .progress-section {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .progress-label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #2c3e50;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #eee;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 8px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #1abc9c, #16a085);
+        border-radius: 10px;
+        transition: width 0.6s ease;
+      }
+
+      .progress-text {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Header / Navigation -->
-    <header>
-      <div class="container">
-        <div class="logo">Breakthrough parish</div>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="event.html">Events</a></li>
-            <li><a href="sermon.html">Sermons</a></li>
-            <li><a href="donate.html" class="active">Donate</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <div class="donate-container">
+      <h2>🙏 Donate to Our Church</h2>
+      <p class="intro">
+        Your support helps us reach more lives and continue God’s work. Thank
+        you for giving generously.
+      </p>
 
-    <!-- Hero Section -->
-    <section class="hero donate-hero">
-      <h1>Support Grace Church</h1>
-      <p>Your generosity helps us spread faith and love</p>
-    </section>
-
-    <!-- Donation Form Section -->
-    <section class="donation-form-section">
-      <h2>Make a Donation</h2>
-      <p>Choose an amount or enter your own</p>
-
-      <div class="donation-grid">
-        <button class="donation-amount">$10</button>
-        <button class="donation-amount">$25</button>
-        <button class="donation-amount">$50</button>
-        <button class="donation-amount">$100</button>
+      <!-- Progress Bar -->
+      <div class="progress-section">
+        <div class="progress-label">Fundraising Progress</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">₦0 of ₦200,000 goal</div>
       </div>
 
-      <form class="donation-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
+      <form id="donateForm">
+        <label for="name">Full Name</label>
         <input
-          type="number"
-          placeholder="Custom Amount"
-          id="customAmount"
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
           required
         />
-        <button type="submit" class="btn">Donate Now</button>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="amount">Donation Amount (₦)</label>
+        <input type="number" id="amount" placeholder="Enter amount" required />
+
+        <label for="note">Note (optional)</label>
+        <textarea
+          id="note"
+          rows="3"
+          placeholder="Your message or prayer request"
+        ></textarea>
+
+        <button type="submit">Donate</button>
       </form>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Grace Church. All rights reserved.</p>
-    </footer>
+      <div class="account-details" id="accountDetails">
+        <h3>💳 Church Account Details</h3>
+        <p><strong>Bank:</strong> First Bank</p>
+        <p><strong>Account Name:</strong> Grace Assembly Church</p>
+        <p><strong>Account Number:</strong> 1234567890</p>
 
-    <script src="./home.js"></script>
+        <button id="paidBtn">✅ I Have Paid</button>
+      </div>
+
+      <div class="success" id="successMsg">
+        🎉 Thank you for your donation! God bless you richly.
+      </div>
+    </div>
+
+    <script>
+      const donateForm = document.getElementById("donateForm");
+      const accountDetails = document.getElementById("accountDetails");
+      const successMsg = document.getElementById("successMsg");
+      const paidBtn = document.getElementById("paidBtn");
+
+      // Progress Elements
+      const progressFill = document.getElementById("progressFill");
+      const progressText = document.getElementById("progressText");
+
+      let goal = 200000; // Goal in Naira
+      let raised = 0;   // Current raised
+
+      // Update Progress Bar
+      function updateProgress() {
+        let percent = Math.min((raised / goal) * 100, 100);
+        progressFill.style.width = percent + "%";
+        progressText.textContent = ₦${raised.toLocaleString()} of ₦${goal.toLocaleString()} goal;
+      }
+
+      donateForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        let amount = parseInt(document.getElementById("amount").value) || 0;
+        raised += amount; // Add new donation
+        updateProgress();
+
+        donateForm.style.display = "none";
+        accountDetails.style.display = "block";
+      });
+
+      paidBtn.addEventListener("click", function() {
+        accountDetails.style.display = "none";
+        successMsg.style.display = "block";
+      });
+
+      // Initialize Progress
+      updateProgress();
+    </script>
   </body>
 </html>
